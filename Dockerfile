@@ -91,11 +91,9 @@ RUN apk update \
     robotframework-imaplibrary2==$IMAP_LIBRARY_VERSION \
     robotframework-pabot==$PABOT_VERSION \
     robotframework-requests==$REQUESTS_VERSION \
-    robotframework-selenium2library \
+    robotframework-seleniumlibrary==$SELENIUM_LIBRARY_VERSION \
     robotframework-sshlibrary==$SSH_LIBRARY_VERSION \
     percy \
-    robot-framework-percy \
-    
     PyYAML \
 
 # Install awscli to be able to upload test reports to AWS S3
