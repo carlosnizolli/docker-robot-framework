@@ -55,7 +55,7 @@ COPY bin/chromedriver.sh /opt/robotframework/bin/chromedriver
 COPY bin/chromium-browser.sh /opt/robotframework/bin/chromium-browser
 COPY bin/run-tests-in-virtual-screen.sh /opt/robotframework/bin/
 #Install git
-RUN yum install git-all
+RUN apk --no-cache add git
 # Install system dependencies
 RUN apk update \
   && apk --no-cache upgrade \
