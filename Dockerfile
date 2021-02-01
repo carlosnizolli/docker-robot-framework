@@ -54,7 +54,9 @@ ENV AWS_UPLOAD_TO_S3 false
 COPY bin/chromedriver.sh /opt/robotframework/bin/chromedriver
 COPY bin/chromium-browser.sh /opt/robotframework/bin/chromium-browser
 COPY bin/run-tests-in-virtual-screen.sh /opt/robotframework/bin/
-
+#Install git
+RUN apt update
+RUN apt install -y git
 # Install system dependencies
 RUN apk update \
   && apk --no-cache upgrade \
@@ -79,9 +81,7 @@ RUN apk update \
   && ln -sfv /opt/robotframework/bin/chromium-browser /usr/lib/chromium/chrome \
 # FIXME: above is a workaround, as the path is ignored
 
-#Install git
-RUN apt update
-RUN apt install -y git
+
 
 # Install Robot Framework and Selenium Library
   && pip3 install \
