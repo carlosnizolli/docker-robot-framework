@@ -95,7 +95,7 @@ RUN apk update \
     robotframework-sshlibrary==$SSH_LIBRARY_VERSION \
     percy \
     PyYAML \
-    git+https://github.com/carlosnizolli/robot-framework-percy.git      
+    git+https://github.com/carlosnizolli/robot-framework-percy.git \      
 
 # Install awscli to be able to upload test reports to AWS S3
     awscli==$AWS_CLI_VERSION \
