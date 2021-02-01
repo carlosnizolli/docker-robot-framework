@@ -17,9 +17,6 @@ ENV SCREEN_COLOUR_DEPTH 24
 ENV SCREEN_HEIGHT 1080
 ENV SCREEN_WIDTH 1920
 
-# Setup the timezone to use, defaults to UTC
-ENV TZ UTC
-
 # Set number of threads for parallel execution
 # By default, no parallelisation
 ENV ROBOT_THREADS 1
@@ -30,11 +27,8 @@ ENV ROBOT_GID 1000
 
 # Dependency versions
 ENV ALPINE_GLIBC 2.31-r0
-ENV AWS_CLI_VERSION 1.18.200
 ENV CHROMIUM_VERSION 86.0
 ENV DATABASE_LIBRARY_VERSION 1.2
-ENV DATADRIVER_VERSION 1.0.0
-ENV DATETIMETZ_VERSION 1.0.6
 ENV FAKER_VERSION 5.0.0
 ENV FIREFOX_VERSION 78
 ENV FTP_LIBRARY_VERSION 1.9
@@ -46,9 +40,6 @@ ENV ROBOT_FRAMEWORK_VERSION 3.2.2
 ENV SELENIUM_LIBRARY_VERSION 4.5.0
 ENV SSH_LIBRARY_VERSION 3.5.1
 ENV XVFB_VERSION 1.20
-
-# By default, no reports are uploaded to AWS S3
-ENV AWS_UPLOAD_TO_S3 false
 
 # Prepare binaries to be executed
 COPY bin/chromedriver.sh /opt/robotframework/bin/chromedriver
@@ -88,7 +79,6 @@ RUN apk update \
     robotframework==$ROBOT_FRAMEWORK_VERSION \
     robotframework-databaselibrary==$DATABASE_LIBRARY_VERSION \
     robotframework-datadriver==$DATADRIVER_VERSION \
-    robotframework-datetime-tz==$DATETIMETZ_VERSION \
     robotframework-faker==$FAKER_VERSION \
     robotframework-ftplibrary==$FTP_LIBRARY_VERSION \
     robotframework-imaplibrary2==$IMAP_LIBRARY_VERSION \
@@ -99,9 +89,6 @@ RUN apk update \
     percy \
     PyYAML \
     git+https://github.com/carlosnizolli/robot-framework-percy.git \      
-
-# Install awscli to be able to upload test reports to AWS S3
-    awscli==$AWS_CLI_VERSION \
 
 # Download the glibc package for Alpine Linux from its GitHub repository
   && wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub \
