@@ -48,7 +48,9 @@ COPY bin/run-tests-in-virtual-screen.sh /opt/robotframework/bin/
 #Install git
 RUN apk --no-cache add git
 #install imagemagick
-RUN apk update add imagemagick 
+RUN apk update
+RUN apk add --no-cache imagemagick bash pngcrush optipng=0.7.7-r0
+CMD ["/bin/bash"]
 # Install system dependencies
 RUN apk update \
   && apk --no-cache upgrade \
