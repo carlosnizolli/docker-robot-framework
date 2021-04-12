@@ -86,7 +86,6 @@ RUN apk update \
     robotframework-requests==$REQUESTS_VERSION \
     robotframework-seleniumlibrary==$SELENIUM_LIBRARY_VERSION \
     robotframework-sshlibrary==$SSH_LIBRARY_VERSION \
-    robotframework-eyes \
     percy \
     PyYAML \
     git+https://github.com/carlosnizolli/robot-framework-percy.git \      
@@ -113,7 +112,10 @@ RUN apk update \
   && apk del --no-cache --update-cache .build-deps
     
 #install imagemagick
-
+RUN apk --update add imagemagick && \
+    rm -rf /var/cache/apk/*
+#install RobotEyes    
+RUN pip3 install robotframework-eyes 
   
 # Create the default report and work folders with the default user to avoid runtime issues
 # These folders are writeable by anyone, to ensure the user can be changed on the command line.
