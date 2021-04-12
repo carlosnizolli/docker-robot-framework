@@ -85,10 +85,11 @@ RUN apk update \
     robotframework-requests==$REQUESTS_VERSION \
     robotframework-seleniumlibrary==$SELENIUM_LIBRARY_VERSION \
     robotframework-sshlibrary==$SSH_LIBRARY_VERSION \
+    robotframework-eyes \
     percy \
     PyYAML \
     git+https://github.com/carlosnizolli/robot-framework-percy.git \      
-    robotframework-eyes
+    
 
 # Download the glibc package for Alpine Linux from its GitHub repository
   && wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub \
