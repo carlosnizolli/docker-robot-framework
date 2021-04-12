@@ -90,11 +90,7 @@ RUN apk update \
     percy \
     PyYAML \
     git+https://github.com/carlosnizolli/robot-framework-percy.git \      
-    
-#install imagemagick
-  RUN apk update
-  RUN apk add --no-cache imagemagick bash pngcrush optipng=0.7.7-r0
-  CMD ["/bin/bash"]    
+
 
 # Download the glibc package for Alpine Linux from its GitHub repository
   && wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub \
@@ -115,7 +111,12 @@ RUN apk update \
 
 # Clean up buildtime dependencies
   && apk del --no-cache --update-cache .build-deps
-
+    
+#install imagemagick
+  RUN apk update
+  RUN apk add --no-cache imagemagick bash pngcrush optipng=0.7.7-r0
+  CMD ["/bin/bash"]    
+  
 # Create the default report and work folders with the default user to avoid runtime issues
 # These folders are writeable by anyone, to ensure the user can be changed on the command line.
 RUN mkdir -p ${ROBOT_REPORTS_DIR} \
