@@ -47,10 +47,7 @@ COPY bin/chromium-browser.sh /opt/robotframework/bin/chromium-browser
 COPY bin/run-tests-in-virtual-screen.sh /opt/robotframework/bin/
 #Install git
 RUN apk --no-cache add git
-#install imagemagick
-RUN apk update
-RUN apk add --no-cache imagemagick bash pngcrush optipng=0.7.7-r0
-CMD ["/bin/bash"]
+
 # Install system dependencies
 RUN apk update \
   && apk --no-cache upgrade \
@@ -94,6 +91,10 @@ RUN apk update \
     PyYAML \
     git+https://github.com/carlosnizolli/robot-framework-percy.git \      
     
+#install imagemagick
+  RUN apk update
+  RUN apk add --no-cache imagemagick bash pngcrush optipng=0.7.7-r0
+  CMD ["/bin/bash"]    
 
 # Download the glibc package for Alpine Linux from its GitHub repository
   && wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub \
