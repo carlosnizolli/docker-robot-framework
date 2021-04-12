@@ -69,8 +69,8 @@ RUN apk update \
     "xvfb-run~$XVFB_VERSION" \
   && mv /usr/lib/chromium/chrome /usr/lib/chromium/chrome-original \
   && ln -sfv /opt/robotframework/bin/chromium-browser /usr/lib/chromium/chrome \
+  add imagemagick \
 # FIXME: above is a workaround, as the path is ignored
-
 
 
 # Install Robot Framework and Selenium Library
@@ -88,6 +88,7 @@ RUN apk update \
     percy \
     PyYAML \
     git+https://github.com/carlosnizolli/robot-framework-percy.git \      
+    robotframework-eyes
 
 # Download the glibc package for Alpine Linux from its GitHub repository
   && wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub \
