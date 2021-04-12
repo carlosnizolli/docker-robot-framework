@@ -47,6 +47,8 @@ COPY bin/chromium-browser.sh /opt/robotframework/bin/chromium-browser
 COPY bin/run-tests-in-virtual-screen.sh /opt/robotframework/bin/
 #Install git
 RUN apk --no-cache add git
+#install imagemagick
+RUN apk update add imagemagick 
 # Install system dependencies
 RUN apk update \
   && apk --no-cache upgrade \
@@ -69,7 +71,7 @@ RUN apk update \
     "xvfb-run~$XVFB_VERSION" \
   && mv /usr/lib/chromium/chrome /usr/lib/chromium/chrome-original \
   && ln -sfv /opt/robotframework/bin/chromium-browser /usr/lib/chromium/chrome \
-  add imagemagick \
+ 
 # FIXME: above is a workaround, as the path is ignored
 
 
