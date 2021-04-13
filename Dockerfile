@@ -1,6 +1,6 @@
 FROM python:3.9.0-alpine3.12
 
-MAINTAINER Paul Podgorsek <ppodgorsek@users.noreply.github.com>
+MAINTAINER Carlos Nizolli <carlosnizolli@users.noreply.github.com>
 LABEL description Robot Framework in Docker.
 
 # Set the reports directory environment variable
@@ -86,9 +86,8 @@ RUN apk update \
     robotframework-requests==$REQUESTS_VERSION \
     robotframework-seleniumlibrary==$SELENIUM_LIBRARY_VERSION \
     robotframework-sshlibrary==$SSH_LIBRARY_VERSION \
-    percy \
     PyYAML \
-    git+https://github.com/carlosnizolli/robot-framework-percy.git \      
+  
 
 
 # Download the glibc package for Alpine Linux from its GitHub repository
@@ -112,8 +111,7 @@ RUN apk update \
   && apk del --no-cache --update-cache .build-deps
     
 #install imagemagick
-RUN apk --update add imagemagick && \
-    rm -rf /var/cache/apk/*
+RUN apk --update add imagemagick
 #install RobotEyes    
 RUN pip3 install robotframework-eyes 
   
