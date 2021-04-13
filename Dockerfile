@@ -1,7 +1,7 @@
 FROM python:3.9.0-alpine3.12
 
 MAINTAINER Carlos Nizolli <carlosnizolli@users.noreply.github.com>
-LABEL description Robot Framework in Docker.
+LABEL description Robot Framework Eyes.
 
 # Set the reports directory environment variable
 ENV ROBOT_REPORTS_DIR /opt/robotframework/reports
