@@ -74,7 +74,7 @@ RUN apk update \
 # FIXME: above is a workaround, as the path is ignored
 
 
-  && pip3 install cryptography \
+  && apk --update add imagemagick \
 
 # Install Robot Framework and Selenium Library
   && pip3 install \
