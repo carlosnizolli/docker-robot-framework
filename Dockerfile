@@ -72,7 +72,7 @@ RUN apk update \
 # FIXME: above is a workaround, as the path is ignored
 
 
-&& pip3 install --upgrade pip
+  && pip3 install --upgrade pip \
 
 # Install Robot Framework and Selenium Library
   && pip3 install \
