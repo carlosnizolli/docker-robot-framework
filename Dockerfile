@@ -41,6 +41,8 @@ ENV SELENIUM_LIBRARY_VERSION 4.5.0
 ENV SSH_LIBRARY_VERSION 3.5.1
 ENV XVFB_VERSION 1.20
 
+ENV CRYPTOGRAPHY_DONT_BUILD_RUST 1
+
 # Prepare binaries to be executed
 COPY bin/chromedriver.sh /opt/robotframework/bin/chromedriver
 COPY bin/chromium-browser.sh /opt/robotframework/bin/chromium-browser
