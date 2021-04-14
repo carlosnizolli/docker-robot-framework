@@ -89,6 +89,7 @@ RUN apk update \
     robotframework-seleniumlibrary==$SELENIUM_LIBRARY_VERSION \
     robotframework-sshlibrary==$SSH_LIBRARY_VERSION \
     PyYAML \
+    robotframework-eyes \
     
 
 # Download the glibc package for Alpine Linux from its GitHub repository
