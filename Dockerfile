@@ -50,7 +50,7 @@ COPY bin/run-tests-in-virtual-screen.sh /opt/robotframework/bin/
 #Install git
 RUN apk --no-cache add git
 
-RUN apk add python3-dev zlib-dev
+RUN apk --update add gcc libgcc musl-dev jpeg-dev zlib-dev 
 
 
 # Install system dependencies
@@ -93,9 +93,7 @@ RUN apk update \
     robotframework-seleniumlibrary==$SELENIUM_LIBRARY_VERSION \
     robotframework-sshlibrary==$SSH_LIBRARY_VERSION \
     PyYAML \
-    --upgrade Pillow \
-    
-  && pip3 install robotframework-eyes \
+    robotframework-eyes \
     
 
 # Download the glibc package for Alpine Linux from its GitHub repository
