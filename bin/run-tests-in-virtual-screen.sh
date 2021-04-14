@@ -27,7 +27,8 @@ then
         robot \
         --outputDir $ROBOT_REPORTS_FINAL_DIR \
         ${ROBOT_OPTIONS} \
-        $ROBOT_TESTS_DIR
+        $ROBOT_TESTS_DIR \
+        -v images_dir:${IMAGES_DIR}
 else
     xvfb-run \
         --server-args="-screen 0 ${SCREEN_WIDTH}x${SCREEN_HEIGHT}x${SCREEN_COLOUR_DEPTH} -ac" \
