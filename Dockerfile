@@ -50,8 +50,8 @@ COPY bin/run-tests-in-virtual-screen.sh /opt/robotframework/bin/
 #Install git
 RUN apk --no-cache add git
 
-RUN apk add build-base python-dev py-pip jpeg-dev zlib-dev
-ENV LIBRARY_PATH=/lib:/usr/lib
+RUN apk add python3-dev zlib-dev
+
 
 # Install system dependencies
 RUN apk update \
