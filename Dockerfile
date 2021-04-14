@@ -89,7 +89,7 @@ RUN apk update \
     robotframework-seleniumlibrary==$SELENIUM_LIBRARY_VERSION \
     robotframework-sshlibrary==$SSH_LIBRARY_VERSION \
     PyYAML \
-    upgrade Pillow \
+    --upgrade Pillow \
     
   && pip3 install robotframework-eyes \
     
