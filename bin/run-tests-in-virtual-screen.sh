@@ -27,8 +27,7 @@ then
         robot \
         --outputDir $ROBOT_REPORTS_FINAL_DIR \
         ${ROBOT_OPTIONS} \
-        $ROBOT_TESTS_DIR \
- 
+        $ROBOT_TESTS_DIR
 else
     xvfb-run \
         --server-args="-screen 0 ${SCREEN_WIDTH}x${SCREEN_HEIGHT}x${SCREEN_COLOUR_DEPTH} -ac" \
@@ -38,8 +37,7 @@ else
         ${PABOT_OPTIONS} \
         --outputDir $ROBOT_REPORTS_FINAL_DIR \
         ${ROBOT_OPTIONS} \
-        $ROBOT_TESTS_DIR \
-
+        $ROBOT_TESTS_DIR
 fi
 
 if [ ${AWS_UPLOAD_TO_S3} = true ]
