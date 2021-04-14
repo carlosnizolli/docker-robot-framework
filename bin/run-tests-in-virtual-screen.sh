@@ -39,7 +39,7 @@ else
         --outputDir $ROBOT_REPORTS_FINAL_DIR \
         ${ROBOT_OPTIONS} \
         $ROBOT_TESTS_DIR \
-    xvfb-run reportgen --baseline=${IMAGES_DIR} --results=${ROBOT_REPORTS_DIR}
+
 fi
 
 if [ ${AWS_UPLOAD_TO_S3} = true ]
