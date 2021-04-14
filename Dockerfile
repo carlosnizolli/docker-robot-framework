@@ -49,6 +49,10 @@ COPY bin/chromium-browser.sh /opt/robotframework/bin/chromium-browser
 COPY bin/run-tests-in-virtual-screen.sh /opt/robotframework/bin/
 #Install git
 RUN apk --no-cache add git
+
+RUN apk add build-base python-dev py-pip jpeg-dev zlib-dev
+ENV LIBRARY_PATH=/lib:/usr/lib
+
 # Install system dependencies
 RUN apk update \
   && apk --no-cache upgrade \
