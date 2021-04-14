@@ -1,7 +1,7 @@
 FROM python:3.9.0-alpine3.12
 
 MAINTAINER Carlos Nizolli <carlosnizolli@users.noreply.github.com>
-LABEL description Robot Framework Eyes.
+LABEL description Robot Framework in Docker.
 
 # Set the reports directory environment variable
 ENV ROBOT_REPORTS_DIR /opt/robotframework/reports
@@ -47,7 +47,6 @@ COPY bin/chromium-browser.sh /opt/robotframework/bin/chromium-browser
 COPY bin/run-tests-in-virtual-screen.sh /opt/robotframework/bin/
 #Install git
 RUN apk --no-cache add git
-
 # Install system dependencies
 RUN apk update \
   && apk --no-cache upgrade \
@@ -70,8 +69,8 @@ RUN apk update \
     "xvfb-run~$XVFB_VERSION" \
   && mv /usr/lib/chromium/chrome /usr/lib/chromium/chrome-original \
   && ln -sfv /opt/robotframework/bin/chromium-browser /usr/lib/chromium/chrome \
- 
 # FIXME: above is a workaround, as the path is ignored
+
 
 
 # Install Robot Framework and Selenium Library
@@ -86,9 +85,9 @@ RUN apk update \
     robotframework-requests==$REQUESTS_VERSION \
     robotframework-seleniumlibrary==$SELENIUM_LIBRARY_VERSION \
     robotframework-sshlibrary==$SSH_LIBRARY_VERSION \
+    percy \
     PyYAML \
-  
-
+    git+https://github.com/carlosnizolli/robot-framework-percy.git \      
 
 # Download the glibc package for Alpine Linux from its GitHub repository
   && wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub \
@@ -109,9 +108,7 @@ RUN apk update \
 
 # Clean up buildtime dependencies
   && apk del --no-cache --update-cache .build-deps
-    
 
-  
 # Create the default report and work folders with the default user to avoid runtime issues
 # These folders are writeable by anyone, to ensure the user can be changed on the command line.
 RUN mkdir -p ${ROBOT_REPORTS_DIR} \
